@@ -17,6 +17,7 @@
   --content-width: 880px;
   --nav-height: 60px;
   --nav-bg: rgba(253, 253, 251, 0.92);
+  --divider: #d6d2c3;
 
   color-scheme: light;
 }
@@ -30,6 +31,7 @@
   --accent: #7fa5c9;
   --accent-soft: rgba(127, 165, 201, 0.12);
   --nav-bg: rgba(20, 19, 16, 0.92);
+  --divider: #3c382d;
   color-scheme: dark;
 }
 
@@ -263,7 +265,7 @@ section[id] { scroll-margin-top: calc(var(--nav-height) + 24px); }
   max-width: var(--content-width);
   margin: 0 auto;
   padding: 64px 24px;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--divider);
   position: relative;
 }
 
