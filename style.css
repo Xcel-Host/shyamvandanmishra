@@ -3,11 +3,13 @@
 --------------------------------------------------------- */
 :root {
   --bg: #fdfdfb;
+  --surface: #f5f4f0;
   --text: #1c1b18;
   --muted: #6b6a63;
   --line: #e2e0d8;
   --accent: #2b4a68;
   --accent-soft: rgba(43, 74, 104, 0.1);
+  --thread: rgba(43, 74, 104, 0.32);
 
   --font-display: 'Spectral', Georgia, 'Times New Roman', serif;
   --font-body: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -15,7 +17,23 @@
   --measure: 640px;
   --content-width: 880px;
   --nav-height: 60px;
+
+  color-scheme: light;
 }
+
+:root[data-theme="dark"] {
+  --bg: #141310;
+  --surface: #1c1a15;
+  --text: #f2f0e7;
+  --muted: #a19d90;
+  --line: #2f2c24;
+  --accent: #7fa5c9;
+  --accent-soft: rgba(127, 165, 201, 0.12);
+  --thread: rgba(127, 165, 201, 0.35);
+  color-scheme: dark;
+}
+
+body { transition: background-color 0.15s ease, color 0.15s ease; }
 
 /* ---------------------------------------------------------
    Reset & base
@@ -106,6 +124,24 @@ section[id] { scroll-margin-top: calc(var(--nav-height) + 24px); }
 .nav-links a:hover,
 .nav-links a:focus-visible { color: var(--accent); }
 
+.theme-toggle {
+  flex: none;
+  background: none;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  padding: 6px 13px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
 /* ---------------------------------------------------------
    Layout helpers
 --------------------------------------------------------- */
@@ -173,7 +209,7 @@ section[id] { scroll-margin-top: calc(var(--nav-height) + 24px); }
 
 .btn-primary:hover,
 .btn-primary:focus-visible {
-  background: #223c56;
+  filter: brightness(0.88);
   color: var(--bg);
 }
 
@@ -213,14 +249,18 @@ section[id] { scroll-margin-top: calc(var(--nav-height) + 24px); }
   top: 0;
   bottom: 0;
   width: 1px;
-  background: var(--line);
+  background: var(--thread);
 }
 
+/* Marker sits on the section-label's own line, vertically centred —
+   anchored to the label's height rather than a fixed pixel guess, so
+   it lines up regardless of how the label wraps or what precedes it. */
 .section.thread .section-label::before {
   content: '';
   position: absolute;
-  left: 19px;
-  top: 68px;
+  left: -32px;
+  top: 50%;
+  transform: translateY(-50%);
   width: 9px;
   height: 9px;
   border-radius: 50%;
@@ -292,12 +332,19 @@ section[id] { scroll-margin-top: calc(var(--nav-height) + 24px); }
 }
 
 .project-shot {
+  display: block;
   aspect-ratio: 16 / 10;
   border: 1px solid var(--line);
   border-radius: 4px;
   overflow: hidden;
   margin-bottom: 18px;
-  background: #f5f4f0;
+  background: var(--surface);
+  transition: border-color 0.15s ease;
+}
+
+.project-shot:hover,
+.project-shot:focus-visible {
+  border-color: var(--accent);
 }
 
 .project-shot img {
@@ -398,12 +445,6 @@ section[id] { scroll-margin-top: calc(var(--nav-height) + 24px); }
   font-size: 0.97rem;
 }
 
-.xp-divider {
-  height: 1px;
-  background: var(--line);
-  margin: 12px 0;
-}
-
 .xp-meta {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -454,7 +495,7 @@ section[id] { scroll-margin-top: calc(var(--nav-height) + 24px); }
   .site-footer { padding-left: 44px; }
 
   .section.thread::before { left: 18px; }
-  .section.thread .section-label::before { left: 13px; top: 58px; }
+  .section.thread .section-label::before { left: -26px; top: 50%; }
 
   .project-grid { grid-template-columns: 1fr; gap: 32px; }
 
