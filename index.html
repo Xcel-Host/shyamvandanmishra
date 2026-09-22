@@ -25,7 +25,9 @@
       <a href="#experience">Experience</a>
       <a href="#contact">Contact</a>
     </nav>
-    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">Dark</button>
+    <button id="theme-toggle" class="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Toggle dark mode">
+      <span class="toggle-track"><span class="toggle-thumb"></span></span>
+    </button>
   </div>
 </header>
 
@@ -292,6 +294,7 @@
       </p>
       <div class="contact-links">
         <a href="mailto:vshyam098@gmail.com" class="btn btn-primary">vshyam098@gmail.com</a>
+        <button type="button" class="btn btn-ghost" id="copy-email">Copy email</button>
         <a href="https://www.linkedin.com/in/svm98" class="btn btn-ghost" target="_blank" rel="noopener">LinkedIn ↗</a>
         <a href="assets/cv.pdf" class="btn btn-ghost" download>Download CV</a>
       </div>
