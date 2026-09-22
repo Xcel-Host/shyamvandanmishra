@@ -238,6 +238,8 @@ section[id] { scroll-margin-top: calc(var(--nav-height) + 24px); }
    Sections + connecting thread
 --------------------------------------------------------- */
 .section {
+  max-width: var(--content-width);
+  margin: 0 auto;
   padding: 64px 24px 64px 56px;
   position: relative;
 }
