@@ -9,7 +9,6 @@
   --line: #e2e0d8;
   --accent: #2b4a68;
   --accent-soft: rgba(43, 74, 104, 0.1);
-  --thread: rgba(43, 74, 104, 0.32);
 
   --font-display: 'Spectral', Georgia, 'Times New Roman', serif;
   --font-body: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -17,6 +16,7 @@
   --measure: 640px;
   --content-width: 880px;
   --nav-height: 60px;
+  --nav-bg: rgba(253, 253, 251, 0.92);
 
   color-scheme: light;
 }
@@ -29,7 +29,7 @@
   --line: #2f2c24;
   --accent: #7fa5c9;
   --accent-soft: rgba(127, 165, 201, 0.12);
-  --thread: rgba(127, 165, 201, 0.35);
+  --nav-bg: rgba(20, 19, 16, 0.92);
   color-scheme: dark;
 }
 
@@ -84,7 +84,7 @@ section[id] { scroll-margin-top: calc(var(--nav-height) + 24px); }
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(253, 253, 251, 0.92);
+  background: var(--nav-bg);
   backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--line);
 }
@@ -235,46 +235,19 @@ section[id] { scroll-margin-top: calc(var(--nav-height) + 24px); }
 .text-link:hover { color: var(--accent); }
 
 /* ---------------------------------------------------------
-   Sections + connecting thread
+   Sections
 --------------------------------------------------------- */
 .section {
   max-width: var(--content-width);
   margin: 0 auto;
-  padding: 64px 24px 64px 56px;
+  padding: 64px 24px;
   position: relative;
-}
-
-.section.thread::before {
-  content: '';
-  position: absolute;
-  left: 24px;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: var(--thread);
-}
-
-/* Marker sits on the section-label's own line, vertically centred —
-   anchored to the label's height rather than a fixed pixel guess, so
-   it lines up regardless of how the label wraps or what precedes it. */
-.section.thread .section-label::before {
-  content: '';
-  position: absolute;
-  left: -32px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 4px var(--bg);
 }
 
 .section-label {
   font-size: 0.85rem;
   color: var(--muted);
   margin: 0 0 10px;
-  position: relative;
 }
 
 .section h2 {
@@ -479,7 +452,7 @@ section[id] { scroll-margin-top: calc(var(--nav-height) + 24px); }
 .site-footer {
   max-width: var(--content-width);
   margin: 0 auto;
-  padding: 32px 24px 56px 56px;
+  padding: 32px 24px 56px;
   color: var(--muted);
   font-size: 0.85rem;
 }
@@ -493,11 +466,8 @@ section[id] { scroll-margin-top: calc(var(--nav-height) + 24px); }
 
   .hero { padding: 64px 20px 48px; }
 
-  .section { padding: 48px 20px 48px 44px; }
-  .site-footer { padding-left: 44px; }
-
-  .section.thread::before { left: 18px; }
-  .section.thread .section-label::before { left: -26px; top: 50%; }
+  .section { padding: 48px 20px; }
+  .site-footer { padding: 24px 20px 48px; }
 
   .project-grid { grid-template-columns: 1fr; gap: 32px; }
 
