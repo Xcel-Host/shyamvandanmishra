@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Shyam Vandan Mishra — AI Governance &amp; Programme Management</title>
 <meta name="description" content="Shyam Vandan Mishra — AI governance and programme management. Case study: building Nissan's first AI governance framework from scratch.">
+<script>
+(function(){try{var t=localStorage.getItem('theme');if(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches){t='dark';}if(t==='dark'){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -22,6 +25,7 @@
       <a href="#experience">Experience</a>
       <a href="#contact">Contact</a>
     </nav>
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">Dark</button>
   </div>
 </header>
 
@@ -142,10 +146,11 @@
 
       <div class="project-grid">
         <article class="project-card">
-          <div class="project-shot" data-placeholder="Add screenshot → assets/middle-east-tracker.png">
+          <a class="project-shot" href="https://middle-east-tracker.vercel.app/" target="_blank" rel="noopener"
+             data-placeholder="Add screenshot → assets/middle-east-tracker.png">
             <img src="assets/middle-east-tracker.png" alt="Screenshot of the Middle East Conflict Tracker"
                  onerror="this.parentElement.classList.add('img-missing'); this.remove();">
-          </div>
+          </a>
           <h3>Middle East Conflict Tracker</h3>
           <p>A real-time tracker of US, Israel, and Iran developments —
             built to make sense of a fast-moving situation as it unfolds.</p>
@@ -155,10 +160,11 @@
         </article>
 
         <article class="project-card">
-          <div class="project-shot" data-placeholder="Add screenshot → assets/defense-intel-dashboard.png">
+          <a class="project-shot" href="https://defense-intel-dashboard.vercel.app/" target="_blank" rel="noopener"
+             data-placeholder="Add screenshot → assets/defense-intel-dashboard.png">
             <img src="assets/defense-intel-dashboard.png" alt="Screenshot of the Defense Intelligence Dashboard"
                  onerror="this.parentElement.classList.add('img-missing'); this.remove();">
-          </div>
+          </a>
           <h3>Defense Intelligence Dashboard</h3>
           <p>A companion dashboard tracking defense and intelligence
             developments, built the same way — hands-on, end to end.</p>
@@ -245,16 +251,6 @@
         </div>
       </div>
 
-      <div class="xp-divider" role="separator"></div>
-
-      <div class="xp-entry">
-        <div class="xp-when">2026 — 2028</div>
-        <div class="xp-what">
-          <h3>Master of International Affairs, International Security</h3>
-          <p class="xp-org">Hertie School, Berlin, Germany</p>
-        </div>
-      </div>
-
       <div class="xp-entry">
         <div class="xp-when">2019 — 2022</div>
         <div class="xp-what">
@@ -308,5 +304,6 @@
   <p>Shyam Vandan Mishra — Budapest, Hungary</p>
 </footer>
 
+<script src="script.js" defer></script>
 </body>
 </html>
